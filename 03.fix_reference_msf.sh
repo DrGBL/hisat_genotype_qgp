@@ -217,25 +217,6 @@ do
     mv final/${line}${type}_tmp.msf final/${line}${type}.msf
     rm final/${line}${type}_tmp*
 
-    #one little change to the fasta files
-    sed 's| |__|g' final/${line}${type}.fasta > final/${line}${type}_tmp.fasta
-    grep ">" ${pathFasta}${line}${type}.fasta | sed 's|>||g' | sed 's| |__|g' > final/${line}_list_true_alleles${type}.txt
-    grep ">" final/${line}${type}.fasta | sed 's|>||g' | sed 's| |__|g'  > final/${line}_list_wrong_alleles${type}.txt
-    paste final/${line}_list_wrong_alleles${type}.txt final/${line}_list_true_alleles${type}.txt > final/${line}_list_alleles${type}.txt
-    awk '
-    FNR==NR{
-      a[$1]=$2
-      next
-    }
-    ($2 in a) && /^>/{
-      print ">"a[$2]
-      next
-    }
-    1
-    ' final/${line}_list_alleles${type}.txt FS="[> ]"  final/${line}${type}_tmp.fasta > final/${line}${type}.fasta
-    sed -i 's|__| |g' final/${line}${type}.fasta
-    rm final/${line}${type}_tmp.fasta;
-    rm final/${line}_list*
   done;
 
 
