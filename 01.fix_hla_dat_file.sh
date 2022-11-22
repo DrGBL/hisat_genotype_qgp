@@ -71,4 +71,6 @@ do
 done
 
 mv hla_dat_file/hla_tmp.dat hla_dat_file/hla.dat
-cp hla_dat_file/hla.dat ../hisat_index/hisatgenotype_db/HLA/
+
+#optional, only if you already know where to send hla.dat
+#cp hla_dat_file/hla.dat ../hisat_index/hisatgenotype_db/HLA/
