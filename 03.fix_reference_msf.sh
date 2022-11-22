@@ -1,3 +1,5 @@
+#requires seqret, and needs to be ran with bash (not sh)
+
 #path of the imgt-hla alignments
 pathAlign=/project/richards/guillaume.butler-laporte/bin/hisat-folder/hisat_index/hisatgenotype_db_original/HLA/alignments/
 #working directory (will create folders there)
