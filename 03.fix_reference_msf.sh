@@ -180,7 +180,7 @@ do
   awk -v line=$line 'BEGIN { FS="|" } { for (i=1; i<=NF; i++) {print $i > ("nuc_separated/" line  "_nuc_part_" i ".txt")}}' munged/${line}_gen.msf
   
   #remove the introns from file 1 (keep only the name of the alleles)
-  sed -E 's|(^[[:space:]]*[A-Z]*\*[0-9:A-Z]*[[:space:]]*)[ACTG\.]*|\1|g' nuc_separated/${line}_nuc_part_1.txt > munged/${line}_nuc.msf
+  sed -E 's|(^[[:space:]]*[A-Z0-9]*\*[0-9:A-Z]*[[:space:]]*)[ACTG\.]*|\1|g' nuc_separated/${line}_nuc_part_1.txt > munged/${line}_nuc.msf
   
   num_nuc_files=$(ls nuc_separated | grep ^${line}_nuc | wc -l)
   num_loop=$(( (num_nuc_files-1 )  / 2 ))
