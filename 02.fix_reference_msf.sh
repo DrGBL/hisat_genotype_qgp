@@ -1,11 +1,7 @@
 #path of the imgt-hla alignments
-pathAlign=/project/richards/guillaume.butler-laporte/bin/hisat-folder/hisat_index/hisatgenotype_db_original/HLA/alignments/
+pathAlign=hisatgenotype_db_original/HLA/alignments/
 #path to the orignal fasta files from imgt-hla
-pathFasta=/project/richards/guillaume.butler-laporte/bin/hisat-folder/hisat_index/hisatgenotype_db_original/HLA/fasta/
-#working directory (will create folders there)
-pathWork=/project/richards/guillaume.butler-laporte/bin/hisat-folder/testing_fasta/
-
-cd ${pathWork}
+pathFasta=hisatgenotype_db_original/HLA/fasta/
 
 mkdir -p munged
 mkdir -p separated
@@ -13,10 +9,12 @@ mkdir -p nuc_separated
 mkdir -p final
 
 #for 3.50.0
-ls ${pathAlign} | grep nuc | sed 's|_nuc.txt||g' | awk '!/DRB/ && !/ClassI/' > list_genes.txt
+#ls ${pathAlign} | grep gen | sed 's|_gen.txt||g' | awk '!/DRB/ && !/ClassI/' > list_genes.txt
+ls ${pathAlign} | grep gen | sed 's|_gen.txt||g' | awk '!/ClassI/' > list_genes.txt
+
 
 #for test
-#ls ${pathAlign} | grep nuc | sed 's|_nuc.txt||g' | awk '!/DRB/ && !/ClassI/' | awk '/DMA/'> list_genes.txt
+#ls ${pathAlign} | grep gen | sed 's|_gen.txt||g' | awk '/DRB/' > list_genes.txt
 
 #msf file types to build
 file_types=("_nuc" "_gen")
@@ -243,5 +241,5 @@ do
 done < list_genes.txt
 
 #optional, only if you know where the files need to go already
-#cp final/*.fasta /project/richards/guillaume.butler-laporte/bin/hisat-folder/hisat_index/hisatgenotype_db/HLA/fasta/
-#cp final/*.msf /project/richards/guillaume.butler-laporte/bin/hisat-folder/hisat_index/hisatgenotype_db/HLA/msf/
+cp final/*.fasta hisatgenotype_db/HLA/fasta/
+cp final/*.msf hisatgenotype_db/HLA/msf/
