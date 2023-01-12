@@ -26,32 +26,27 @@ mkdir -p hisatgenotype_db/
 mkdir -p hisatgenotype_db/HLA
 mkdir -p hisatgenotype_db/HLA/msf
 mkdir -p hisatgenotype_db/HLA/fasta
-mkdir -p hisatgenotype_db_3500/
-mkdir -p hisatgenotype_db_3490/ #for DPB1
+mkdir -p hisatgenotype_db_3490/
 mkdir -p hisatgenotype_db_original/HLA/alignments/
 mkdir -p hisatgenotype_db_original/HLA/fasta/
 
-cd hisatgenotype_db_3500/
-git clone --single-branch --branch 3500 https://github.com/ANHIG/IMGTHLA HLA
-cd ..
 cd hisatgenotype_db_3490/
 git clone --single-branch --branch 3490 https://github.com/ANHIG/IMGTHLA HLA
 cd ..
 
 #move files around
-mv hisatgenotype_db_3500/HLA/hla.dat hisatgenotype_db_original/HLA/
-mv hisatgenotype_db_3500/HLA/alignments/* hisatgenotype_db_original/HLA/alignments/
-mv hisatgenotype_db_3500/HLA/fasta/* hisatgenotype_db_original/HLA/fasta/
+mv hisatgenotype_db_3490/HLA/hla.dat hisatgenotype_db_original/HLA/
+mv hisatgenotype_db_3490/HLA/alignments/* hisatgenotype_db_original/HLA/alignments/
+mv hisatgenotype_db_3490/HLA/fasta/* hisatgenotype_db_original/HLA/fasta/
 
-mv hisatgenotype_db_3490/HLA/alignments/DPB1* hisatgenotype_db_original/HLA/alignments/
-mv hisatgenotype_db_3490/HLA/fasta/DPB1* hisatgenotype_db_original/HLA/fasta/
-
-rm -r hisatgenotype_db_3500/ hisatgenotype_db_3490/
+rm -r hisatgenotype_db_3490/
 
 
 #adjust imgt hla files
 sh ../01.fix_hla_dat_file.sh
+rm -r hla_dat_file
 bash ../02.fix_reference_msf.sh
+rm -r final munged nuc_separated separated hisatgenotype_db_original
 
 #download cyp and codis folders from here https://github.com/DaehwanKimLab/hisatgenotype_db
 #but note that I haven't updated them at all
