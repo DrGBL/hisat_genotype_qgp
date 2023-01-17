@@ -17,7 +17,7 @@ cd ../..
 
 #change paths to have the hisat-genotype and hisat2 folders in your path
 export PATH=$PWD/hisatgenotype:$PWD/hisatgenotype/hisat2:$PATH
-export PYTHONPATH=$PWD/hisatgenotype/hisatgenotype_modules:$PYTHONPATH
+export PYTHONPATH=$PWD/hisatgenotype/hisatgenotypeules:$PYTHONPATH
 
 #download hla database, note that I used 3.50.0 for all genes except for DPB1 due to a strange misalignment in some genes (e.g. DPB1*04:01:01:34)
 mkdir -p hisat_index/
@@ -125,7 +125,7 @@ done
 #now run hisat-genotype!
 cd ..
 
-hisatgenotype_mod --base hla \
+hisatgenotype --base hla \
               --threads 10 \
               -z hisat_index/chr6 \
               -v --keep-extract \
@@ -135,7 +135,7 @@ hisatgenotype_mod --base hla \
               --out-dir ./tmp_hisat/chr6 > hisat_build_chr6.log 2>&1
 
 #chr6_GL000250
-hisatgenotype_mod --base hla \
+hisatgenotype --base hla \
               --threads 10 \
               -z hisat_index/chr6_GL000250/ \
               -v --keep-extract \
@@ -145,7 +145,7 @@ hisatgenotype_mod --base hla \
               --out-dir ./tmp_hisat/chr6_GL000250/ > hisat_build_chr6_GL000250.log 2>&1
 
 #chr6_GL000251
-hisatgenotype_mod --base hla \
+hisatgenotype --base hla \
               --threads 10 \
               -z hisat_index/chr6_GL000251 \
               -v --keep-extract \
@@ -155,7 +155,7 @@ hisatgenotype_mod --base hla \
               --out-dir ./tmp_hisat/chr6_GL000251 > hisat_build_chr6_GL000251.log 2>&1
 
 #chr6_GL000252
-hisatgenotype_mod --base hla \
+hisatgenotype --base hla \
               --threads 10 \
               -z hisat_index/chr6_GL000252 \
               -v --keep-extract \
@@ -165,7 +165,7 @@ hisatgenotype_mod --base hla \
               --out-dir ./tmp_hisat/chr6_GL000252 > hisat_build_chr6_GL000252.log 2>&1
 
 #chr6_GL000253
-hisatgenotype_mod --base hla \
+hisatgenotype --base hla \
               --threads 10 \
               -z hisat_index/chr6_GL000253 \
               -v --keep-extract \
@@ -175,7 +175,7 @@ hisatgenotype_mod --base hla \
               --out-dir ./tmp_hisat/chr6_GL000253 > hisat_build_chr6_GL000253.log 2>&1
 
 #chr6_GL000254
-hisatgenotype_mod --base hla \
+hisatgenotype --base hla \
               --threads 10 \
               -z hisat_index/chr6_GL000254 \
               -v --keep-extract \
@@ -185,7 +185,7 @@ hisatgenotype_mod --base hla \
               --out-dir ./tmp_hisat/chr6_GL000254 > hisat_build_chr6_GL000254.log 2>&1
 
 #chr6_GL000255
-hisatgenotype_mod --base hla \
+hisatgenotype --base hla \
               --threads 10 \
               -z hisat_index/chr6_GL000255 \
               -v --keep-extract \
@@ -195,7 +195,7 @@ hisatgenotype_mod --base hla \
               --out-dir ./tmp_hisat/chr6_GL000255 > hisat_build_chr6_GL000255.log 2>&1
 
 #chr6_GL000256
-hisatgenotype_mod --base hla \
+hisatgenotype --base hla \
               --threads 10 \
               -z hisat_index/chr6_GL000256 \
               -v --keep-extract \
