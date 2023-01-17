@@ -111,7 +111,7 @@ do
 done
 
 #build genotype_genome graph genome
-#the following would be the code, but I did this on dna-nexus since it requires >200GB of ram
+#the following would be the code to run in each of the chr6* folders created above, but I did this on dna-nexus since it requires >200GB of ram:
 #hisat2-build -p 96 --snp genotype_genome.index.snp --haplotype genotype_genome.haplotype genotype_genome.fa genotype_genome
 
 #hence, put the genotype_genome files in tar balls for export to dnanexus
